@@ -162,11 +162,11 @@ recognizer.stopRecognition( completion: {
 
 ## [EmitterError](#emittererror)
 ---
-* HEADSET_PLUGGED
+* HEADSET_PLUGGED: Error when headset is detected
 
 ## [RecognizerError](#recognizererror)
 ---
-* HEADSET_PLUGGED
-* HEADER_TIMEOUT
-* CHECKSUM_ERROR
+* HEADSET_PLUGGED: Error when headset is detected
+* HEADER_TIMEOUT: Error when time receving second header exceed
+* CHECKSUM_ERROR: Error when the received message can't match with checksum
 
