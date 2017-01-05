@@ -19,16 +19,14 @@
 
 ### Features
 
-[Emitter](#emitter-1)
+[Emitter](#emitter)
 - Transmitting data through sound waves.
 - Headset plugged detection.
 - Auto volume control.
-
-[Recognizer](#recognizer-1)
+[Recognizer](#recognizer)
 - Receive & processing sound waves data.
 - Headset plugged detection.
-
-[Utility](#utility-1)
+[Utility](#utility)
 - Calibration utility ensures the device's mic/speaker is supported.
 - Check required permissions are granted.
 - Request required permissions.
@@ -43,20 +41,17 @@ Software
 * Android Jelly Bean (4.1.x) or higher 
 
 
-### Installation
-
-
----
 # Classes
----
 
 ## Emitter
-
+---
 ### Construct
+---
 Construct Emitter instance to start using Aimazing SDK to transmit data.
 ```java
-Emitter(Activity _activity, EmitterCallback _callback)
+new Emitter(Activity _activity, EmitterCallback _callback)
 ```
+
 ####Arguments
 * Activity - Android activity class
 * [EmitterCallback](#emittercallback) - EmitterCallback instance
@@ -87,6 +82,7 @@ emitter = new Emitter(MainActivity.this, emitterCallback);
 ```
 ---
 ### Start Playing
+---
 Start transmitting data through sound waves. The sound waves will keep playing until stop() is called.
 ```java
 void start(String _message)
@@ -102,6 +98,7 @@ emitter.start("HelloWorld123");
 
 ---
 ### Stop Playing
+---
 Stop playing sound waves.
 ```java
 void stop()
@@ -114,15 +111,15 @@ N/A
 ```java
 emitter.stop();
 ```
-
 ---
 
 ## Recognizer
-
+---
 ### Construct
+---
 Construct Recognizer instance to start using Aimazing SDK to receive data.
 ```java
-Recognizer(Activity _activity, Recognizer _callback)
+new Recognizer(Activity _activity, Recognizer _callback)
 ```
 
 #### Arguments
@@ -173,6 +170,7 @@ recognizer = new Recognizer(MainActivity.this, recognizerCallback);
 ```
 ---
 ### Start Receiving
+---
 Start receiving data. The result will be sent through callback functions. Please refer to the description of [RecognizerCallback](#recognizercallback) for further details. 
 ```java
 void start()
@@ -187,6 +185,7 @@ recognizer.start();
 ```
 ---
 ### Stop Receiving
+---
 Stop the receiving process.
 ```java
 void stop()
@@ -199,10 +198,142 @@ N/A
 ```java
 recognizer.stop();
 ```
-
 ---
 
 ## Utility
+---
+### Construct
+---
+Construct Utility instance to use the utilities Aimazing SDK provide.
+```java
+new Utility(Activity _activity, UtilityCallback _callback);
+```
+
+#### Arguments
+* Activity - Android activity class
+* [UtilityCallback](#utilitycallback) - UtilityCallback instance
+
+#### Example
+```java
+Utility utility;
+UtilityCallback utilityCallback;
+
+utilityCallback = new UtilityCallback() {
+  @Override
+  public void onCalibrationSuccess() {
+    MainActivity.this.runOnUiThread(new Runnable() {
+      @Override
+      public void run() {
+        new AlertDialog.Builder(MainActivity.this)
+                .setTitle("Aimazing SDK Calibration Test")
+                .setMessage("Success")
+                .setNeutralButton("OK", new DialogInterface.OnClickListener() {
+                  public void onClick(DialogInterface dialog, int which) {
+                    // do nothing
+                  }
+                })
+                .show();
+      }
+    });
+  }
+
+  @Override
+  public void onCalibrationFailed() {
+    MainActivity.this.runOnUiThread(new Runnable() {
+      @Override
+      public void run() {
+        new AlertDialog.Builder(MainActivity.this)
+                .setTitle("Aimazing SDK Calibration Test")
+                .setMessage("Failed")
+                .setNeutralButton("OK", new DialogInterface.OnClickListener() {
+                  public void onClick(DialogInterface dialog, int which) {
+                    // do nothing
+                  }
+                })
+                .show();
+      }
+    });
+  };
+
+utility = new Utility(MainActivity.this, utilityCallback);
+```
+---
+### Start Calibration Process for Current Device
+---
+In order to start using Aimazing SDK, the microphone and speaker of the device need to pass this calibration process to ensure that the device is fully supports the functions Aimazing SDK provide. The result of calibration process will be sent through callback functions. Please refer to the description of [UtilityCallback](https://app.nuclino.com/teams/13:23281/documents/850d0a7e-3a41-4164-a92f-23f1e34b69dc) for further details.
+```java
+void calibration();
+```
+
+#### Arguments
+N/A
+
+#### Example
+```java
+calibrationButton = (Button)findViewById(R.id.calibrationButton);
+calibrationButton.setOnClickListener(new View.OnClickListener() {
+  @Override
+  public void onClick(View v) {
+    utility.calibration();
+  }
+});
+```
+---
+### Check Permissions Granted
+---
+Aimazing SDK requires the control of playback volume and microphone access. Please use this method to check whether the permissions mention before are granted.
+```java
+boolean checkPermission();
+```
+
+#### Arguments
+N/A
+
+#### Example
+```java
+if (!utility.checkPermission()) {
+  utility.requestPermission();
+}
+```
+---
+### Request Permissions
+---
+If the permissions not granted, please use this method to request the permissions from users. Override `onRequestPermissionsResult` in Android Activity can catch the requesting result.
+```java
+void requestPermission();
+```
+
+#### Arguments
+N/A
+
+#### Example
+```java
+if (!utility.checkPermission()) {
+  utility.requestPermission();
+}
+
+@Override
+public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
+  switch (requestCode) {
+    case 1:
+      if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+        // permission granted
+      } else {
+        // permission denied!
+        new AlertDialog.Builder(this)
+                .setTitle("Unable to start Aimazing SDK")
+                .setMessage("Permission Not Granted")
+                .setNeutralButton("RETRY", new DialogInterface.OnClickListener() {
+                  public void onClick(DialogInterface dialog, int which) {
+                    // do nothing
+                    utility.requestPermission();
+                  }
+                })
+                .show();
+      }
+  }
+}
+```
 
 
 
