@@ -54,11 +54,11 @@ Construct Emitter instance to start using Aimazing SDK to transmit data.
 new Emitter(Activity _activity, EmitterCallback _callback)
 ```
 
-####Arguments
+#### Arguments
 * Activity - Android activity class
 * [EmitterCallback](#emittercallback) - EmitterCallback instance
 
-####Example
+#### Example
 ```java
 Emitter emitter;
 EmitterCallback emitterCallback;
@@ -93,7 +93,7 @@ void start(String _message)
 #### Arguments
 * Message - message to transmit
 
-####Example
+#### Example
 ```java
 emitter.start("HelloWorld123");
 ```
