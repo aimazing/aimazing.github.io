@@ -23,3 +23,7 @@
 #### Software
 * Android Jelly Bean (4.1.x) or higher
 * iOS 9.0 or higher
+
+## Usage
+* [Android](https://github.com/aimazing/aimazing.github.io/blob/master/Android.md)
+* [iOS](https://github.com/aimazing/aimazing.github.io/blob/master/iOS.md)
