@@ -1,22 +1,26 @@
 # Aimazing SDK Documentation (iOS)
+---
+## Overview
 
-## Usage
-```swift
-import AimazingLib
-```
+#### [Installation](#installation)
 
-## Classes
+#### [Classes](#classes)
 * [Emitter](#emitter)
 * [Recognizer](#recognizer)
 
-## Struct
+#### [Struct](#struct)
 * [EmitterError](#emittererror)
 * [RecognizerError](#recognizererror)
 
 ---
-
+## Installation
+---
+```swift
+import AimazingLib
+```
+---
 # Classes
-
+---
 ## Emitter
 ---
 ### Construct
@@ -135,16 +139,14 @@ recognizer.stopRecognition( completion: {
 })
 ```
 ---
-
 # Struct
-
-## [EmitterError](#emittererror)
+---
+## EmitterError
 ---
 * HEADSET_PLUGGED: Error when headset is detected
 
-## [RecognizerError](#recognizererror)
+## RecognizerError
 ---
 * HEADSET_PLUGGED: Error when headset is detected
 * HEADER_TIMEOUT: Error when time receving second header exceed
 * CHECKSUM_ERROR: Error when the received message can't match with checksum
-
