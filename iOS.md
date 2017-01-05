@@ -163,7 +163,7 @@ recognizer.stopRecognition( completion: {
 ## [EmitterError](#emittererror)
 ---
 * HEADSET_PLUGGED
----
+
 ## [RecognizerError](#recognizererror)
 ---
 * HEADSET_PLUGGED
