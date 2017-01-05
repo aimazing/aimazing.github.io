@@ -337,16 +337,57 @@ public void onRequestPermissionsResult(int requestCode, String permissions[], in
 }
 ```
 
-
-
 ---
 ## Callback
 ---
-
 ### EmitterCallback
+---
+#### onStarted()
+While start playing sound waves, this callback function will be called.
 
+#### onStopped()
+While stop playing sound waves, this callback function will be called.
 
+#### onError(String errorMessage)
+While playing failed, this callback function will be called, the error message will be passed as `errorMessage`.
+
+### Example
+```java
+emitterCallback = new EmitterCallback() {
+  @Override
+  public void onStarted() {
+    Log.e("EMITTERCALLBACK", "started");
+  }
+
+  @Override
+  public void onStopped() {
+    Log.e("EMITTERCALLBACK", "stopped");
+  }
+
+  @Override
+  public void onError(final String message) {
+    MainActivity.this.runOnUiThread(new Runnable() {
+      @Override
+      public void run() {
+        new AlertDialog.Builder(MainActivity.this)
+                .setTitle("Emitter Error")
+                .setMessage(message)
+                .setNeutralButton("OK", new DialogInterface.OnClickListener() {
+                  public void onClick(DialogInterface dialog, int which) {
+                    // do nothing
+                  }
+                })
+                .show();
+      }
+    });
+  }
+};
+```
+
+---
 ### RecognizerCallback
+---
 
-
+---
 ### UtilityCallback
+---
