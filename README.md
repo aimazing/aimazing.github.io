@@ -1,6 +1,5 @@
 # SDK Documentation
 ---
-
 ## Overview
 - [Features](#features)
 - [Requirements](#requirements)
@@ -20,16 +19,16 @@
 
 ### Features
 
-#### [Emitter](#emitter-1)
+[Emitter](#emitter-1)
 - Transmitting data through sound waves.
 - Headset plugged detection.
 - Auto volume control.
 
-#### [Recognizer](#recognizer-1)
+[Recognizer](#recognizer-1)
 - Receive & processing sound waves data.
 - Headset plugged detection.
 
-#### [Utility](#utility-1)
+[Utility](#utility-1)
 - Calibration utility ensures the device's mic/speaker is supported.
 - Check required permissions are granted.
 - Request required permissions.
@@ -37,11 +36,11 @@
 
 ### Requirements
 
-#### Hardware
+Hardware
 * Microphone can produces 16kHz \~ 20kHz
 * Speaker can receives 16kHz \~ 20kHz
 
-#### Software
+Software
 * Android Jelly Bean (4.1.x) or higher 
 
 
@@ -62,11 +61,11 @@ Construct Emitter instance to start using Aimazing SDK to transmit data.
 Emitter(Activity _activity, EmitterCallback _callback)
 ```
 
-#### Arguments
+Arguments
 * Activity - Android activity class
 * [EmitterCallback](#emittercallback) - EmitterCallback instance
 
-#### Example
+Example
 ```java
 Emitter emitter;
 EmitterCallback emitterCallback;
@@ -91,43 +90,45 @@ emitterCallback = new EmitterCallback() {
 emitter = new Emitter(MainActivity.this, emitterCallback);
 ```
 ---
-
 ### Start Playing
 
 Start transmitting data through sound waves. The sound waves will keep playing until stop() is called.
+```java
+void start(String _message)
+```
 
-    void start(String _message)
-
-#### Arguments
-
+Arguments
 * Message - message to transmit
 
-#### Example
-
-    emitter.start("HelloWorld123");
+Example
+```java
+emitter.start("HelloWorld123");
+```
 
 ---
-
 ### Stop Playing
 
 Stop playing sound waves.
+```java
+void stop()
+```
 
-    void stop()
-
-#### Arguments
-
+Arguments
 N/A
 
-#### Example
+Example
+```java
+emitter.stop();
+```
 
-    emitter.stop();
-    
+---
+
+## Recognizer
 
 
-### Recognizer
+---
 
-
-### Utility
+## Utility
 
 
 
