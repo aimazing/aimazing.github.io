@@ -1,6 +1,6 @@
 # SDK Documentation
 
-[Features](https://app.nuclino.com/teams/13:23281/documents/8744a91a-e766-4a19-b910-0358fe2e917b)
+[Features](https://github.com/aimazing/aimazing.github.io#features)
 
 [Requirements](https://app.nuclino.com/teams/13:23281/documents/c7995567-bd52-491a-b8f2-d050a3867508)
 
