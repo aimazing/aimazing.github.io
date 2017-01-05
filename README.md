@@ -387,7 +387,102 @@ emitterCallback = new EmitterCallback() {
 ---
 ### RecognizerCallback
 ---
+#### onStarted()
+While start receiving sound waves, this callback function will be called.
+
+#### onStopped()
+While stop receiving sound waves, this callback function will be called.
+
+#### onError(String errorMessage)
+While recognizer failed to start, this callback function will be called, the error message will be passed as `errorMessage`.
+
+#### onSuccess(String message)
+While recognizer got the message from emitter, this callback function will be called, the message will be passed as `message` .
+
+### Example
+```java
+recognizerCallback = new RecognizerCallback() {
+  @Override
+  public void onStarted() {
+    Log.e("RECOGNIZERCALLBACK", "started");
+  }
+
+  @Override
+  public void onStopped() {
+    Log.e("RECOGNIZERCALLBACK", "stopped");
+  }
+
+  @Override
+  public void onSuccess(final String message) {
+    Log.e("RECOGNIZERCALLBACK", "success: " + message);
+  }
+
+  @Override
+  public void onError(final String message) {
+    MainActivity.this.runOnUiThread(new Runnable() {
+      @Override
+      public void run() {
+        new AlertDialog.Builder(MainActivity.this)
+                .setTitle("Recognize Error")
+                .setMessage(message)
+                .setNeutralButton("OK", new DialogInterface.OnClickListener() {
+                  public void onClick(DialogInterface dialog, int which) {
+                    // do nothing
+                  }
+                })
+                .show();
+      }
+    });
+  }
+};
+```
 
 ---
 ### UtilityCallback
 ---
+#### onCalibrationSuccess()
+While the device pass the calibration test, this callback function will be called.
+
+#### onCalibrationFailed()
+While the device fail the calibration test, this callback function will be called.
+
+### Example
+```java
+utility = new Utility(this, new UtilityCallback() {
+  @Override
+  public void onCalibrationSuccess() {
+    MainActivity.this.runOnUiThread(new Runnable() {
+      @Override
+      public void run() {
+        new AlertDialog.Builder(MainActivity.this)
+                .setTitle("Aimazing SDK Calibration Test")
+                .setMessage("Success")
+                .setNeutralButton("OK", new DialogInterface.OnClickListener() {
+                  public void onClick(DialogInterface dialog, int which) {
+                    // do nothing
+                  }
+                })
+                .show();
+      }
+    });
+  }
+
+  @Override
+  public void onCalibrationFailed() {
+    MainActivity.this.runOnUiThread(new Runnable() {
+      @Override
+      public void run() {
+        new AlertDialog.Builder(MainActivity.this)
+                .setTitle("Aimazing SDK Calibration Test")
+                .setMessage("Failed")
+                .setNeutralButton("OK", new DialogInterface.OnClickListener() {
+                  public void onClick(DialogInterface dialog, int which) {
+                    // do nothing
+                  }
+                })
+                .show();
+      }
+    });
+  }
+});
+```
