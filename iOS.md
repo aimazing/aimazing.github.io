@@ -9,6 +9,9 @@
 * [Emitter](#emitter)
 * [Recognizer](#recognizer)
 
+## Struct
+* [EmitterError](#emittererror)
+* [RecognizerError](#recognizererror)
 
 ---
 
@@ -64,7 +67,7 @@ func startEmit(message: message, completion:((error: Int) -> Void))
 
 #### Arguments
 * message - message to transmit, which is Base64 encoded
-* completion - Callback function when successfully start transmitting data, return error if failed to start transmitting data
+* completion - Callback function when successfully start transmitting data, return error if failed to start transmitting data, error value can be referred to [EmitterError](#emittererror)
 
 #### Example
 ```swift
@@ -122,7 +125,7 @@ void startRecognition(onStarted:(() -> Void), onGotHeader:(() -> Void), onSucces
 * onStarted - Callback function when start receiving data
 * onGotHeader - Callback function when received transmittion header
 * onSuccess - Callback function when successfully receiving completed message
-* onFailed - Callback function when failed to receive data 
+* onFailed - Callback function when failed to receive data, error value can be referred to [RecognizerError](#recognizererror) 
 
 #### Example
 ```swift
@@ -155,4 +158,15 @@ recognizer.stopRecognition( completion: {
 ```
 ---
 
+# Struct
+
+## [EmitterError](#emittererror)
+---
+* HEADSET_PLUGGED
+---
+## [RecognizerError](#recognizererror)
+---
+* HEADSET_PLUGGED
+* HEADER_TIMEOUT
+* CHECKSUM_ERROR
 
