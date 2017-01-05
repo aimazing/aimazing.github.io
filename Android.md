@@ -1,16 +1,20 @@
-## Classes
-* Emitter [Android]() [iOS]()
-* Recognizer [Android]() [iOS]()
-* Utility [Android]() [iOS]()
+# Aimazing SDK Documentation (iOS)
+---
+## Overview
 
-## Callback Functions
+#### Classes
+* [Emitter](#emitter)
+* [Recognizer](#recognizer)
+* [Utility](#utility)
+
+#### Callback Functions
 * [EmitterCallback](#emittercallback)
 * [RecognizerCallback](#recognizercallback)
 * [UtilityCallback](#utilitycallback)
 
-
+---
 # Classes
-
+---
 ## Emitter
 ---
 ### Construct
@@ -304,7 +308,7 @@ public void onRequestPermissionsResult(int requestCode, String permissions[], in
 ```
 
 ---
-## Callback
+# Callback
 ---
 ### EmitterCallback
 ---
