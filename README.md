@@ -57,12 +57,11 @@ Construct Emitter instance to start using Aimazing SDK to transmit data.
 ```java
 Emitter(Activity _activity, EmitterCallback _callback)
 ```
-
-Arguments
+####Arguments
 * Activity - Android activity class
 * [EmitterCallback](#emittercallback) - EmitterCallback instance
 
-Example
+####Example
 ```java
 Emitter emitter;
 EmitterCallback emitterCallback;
@@ -93,10 +92,10 @@ Start transmitting data through sound waves. The sound waves will keep playing u
 void start(String _message)
 ```
 
-Arguments
+#### Arguments
 * Message - message to transmit
 
-Example
+####Example
 ```java
 emitter.start("HelloWorld123");
 ```
@@ -108,10 +107,10 @@ Stop playing sound waves.
 void stop()
 ```
 
-Arguments
+#### Arguments
 N/A
 
-Example
+#### Example
 ```java
 emitter.stop();
 ```
@@ -126,11 +125,11 @@ Construct Recognizer instance to start using Aimazing SDK to receive data.
 Recognizer(Activity _activity, Recognizer _callback)
 ```
 
-Arguments
+#### Arguments
 * Activity - Android activity class
 * [RecognizerCallback](#recognizercallback) - RecognizerCallback instance
 
-Example
+#### Example
 ```java
 Recognizer recognizer;
 RecognizerCallback recognizerCallback;
@@ -179,10 +178,10 @@ Start receiving data. The result will be sent through callback functions. Please
 void start()
 ```
 
-Arguments
+#### Arguments
 N/A
 
-Example
+#### Example
 ```java
 recognizer.start();
 ```
@@ -193,14 +192,13 @@ Stop the receiving process.
 void stop()
 ```
 
-Arguments
+#### Arguments
 N/A
 
-Example
+#### Example
 ```java
 recognizer.stop();
 ```
-
 
 ---
 
