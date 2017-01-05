@@ -1,4 +1,4 @@
-# Readme
+# SDK Documentation
 
 [Features](https://app.nuclino.com/teams/13:23281/documents/8744a91a-e766-4a19-b910-0358fe2e917b)
 
@@ -23,6 +23,9 @@
 [UtilityCallback](https://app.nuclino.com/teams/13:23281/documents/850d0a7e-3a41-4164-a92f-23f1e34b69dc)
 
 ---
+# Features
+
+
 # [Emitter](https://app.nuclino.com/teams/13:23281/documents/beb38ff7-b458-4e64-8092-68054e1d0f22)
 
 * Transmitting data through sound waves.
