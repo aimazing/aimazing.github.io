@@ -20,7 +20,7 @@
 
 ### Features
 
-#### [Emitter](#emitter)
+#### [Emitter](###emitter)
 
 - Transmitting data through sound waves.
 - Headset plugged detection.
