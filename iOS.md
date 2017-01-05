@@ -1,9 +1,9 @@
 # Aimazing SDK Documentation (iOS)
 
-## Overview
-* [Features](#features)
-* [Requirements](#requirements)
-* [Usage](#usage)
+## Usage
+```swift
+import AimazingLib
+```
 
 ## Classes
 * [Emitter](#emitter)
@@ -14,34 +14,6 @@
 * [RecognizerError](#recognizererror)
 
 ---
-
-### Features
-
-#### [Emitter](#emitter)
-* Transmitting data through sound waves.
-* Headset plugged detection.
-* Auto volume control.
-
-#### [Recognizer](#recognizer)
-* Receive & processing sound waves data.
-* Headset plugged detection.
-
-
-
-### [Requirements](#requirements)
-Hardware
-* Microphone can produces 16kHz \~ 20kHz
-* Speaker can receives 16kHz \~ 20kHz
-
-Software
-* iOS 9.0 or higher 
-
-### [Usage](#usage)
-
-```swift
-import AimazingLib
-```
-
 
 # Classes
 
