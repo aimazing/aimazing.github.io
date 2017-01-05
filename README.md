@@ -18,3 +18,14 @@
 - Calibration utility ensures the device's mic/speaker is supported.
 - Check required permissions are granted.
 - Request required permissions.
+
+---
+
+## Requirements
+
+#### Hardware
+* Microphone can produces 16kHz \~ 20kHz
+* Speaker can receives 16kHz \~ 20kHz
+
+#### Software
+* Android Jelly Bean (4.1.x) or higher
