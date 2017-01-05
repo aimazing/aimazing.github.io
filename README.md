@@ -1,19 +1,19 @@
 # SDK Documentation
 ---
 ## Overview
-- [Features](#features)
-- [Requirements](#requirements)
-- [Installation](#installation)
+* [Features](#features)
+* [Requirements](#requirements)
+* [Installation](#installation)
 
 ## Classes
-- [Emitter](#emitter)
-- [Recognizer](#recognizer)
-- [Utility](#utility)
+* [Emitter](#emitter)
+* [Recognizer](#recognizer)
+* [Utility](#utility)
 
 ## Callback Functions
-- [EmitterCallback](#emittercallback)
-- [RecognizerCallback](#recognizercallback)
-- [UtilityCallback](#utilitycallback)
+* [EmitterCallback](#emittercallback)
+* [RecognizerCallback](#recognizercallback)
+* [UtilityCallback](#utilitycallback)
 
 ---
 
