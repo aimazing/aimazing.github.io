@@ -54,7 +54,6 @@ Software
 
 ### Construct
 Construct Emitter instance to start using Aimazing SDK to transmit data.
-
 ```java
 Emitter(Activity _activity, EmitterCallback _callback)
 ```
@@ -120,6 +119,87 @@ emitter.stop();
 ---
 
 ## Recognizer
+
+### Construct
+Construct Recognizer instance to start using Aimazing SDK to receive data.
+```java
+Recognizer(Activity _activity, Recognizer _callback)
+```
+
+Arguments
+* Activity - Android activity class
+* [RecognizerCallback](#recognizercallback) - RecognizerCallback instance
+
+Example
+```java
+Recognizer recognizer;
+RecognizerCallback recognizerCallback;
+
+recognizerCallback = new RecognizerCallback() {
+  @Override
+  public void onStarted() {
+    Log.e("RECOGNIZERCALLBACK", "started");
+  }
+
+  @Override
+  public void onStopped() {
+    Log.e("RECOGNIZERCALLBACK", "stopped");
+  }
+
+  @Override
+  public void onSuccess(final String message) {
+    Log.e("RECOGNIZERCALLBACK", "success: " + message);
+  }
+
+  @Override
+  public void onError(final String message) {
+    MainActivity.this.runOnUiThread(new Runnable() {
+      @Override
+      public void run() {
+        new AlertDialog.Builder(MainActivity.this)
+                .setTitle("Recognize Error")
+                .setMessage(message)
+                .setNeutralButton("OK", new DialogInterface.OnClickListener() {
+                  public void onClick(DialogInterface dialog, int which) {
+                    // do nothing
+                  }
+                })
+                .show();
+      }
+    });
+  }
+};
+    
+recognizer = new Recognizer(MainActivity.this, recognizerCallback);
+```
+---
+### Start Receiving
+Start receiving data. The result will be sent through callback functions. Please refer to the description of [RecognizerCallback](#recognizercallback) for further details. 
+```java
+void start()
+```
+
+Arguments
+N/A
+
+Example
+```java
+recognizer.start();
+```
+---
+### Stop Receiving
+Stop the receiving process.
+```java
+void stop()
+```
+
+Arguments
+N/A
+
+Example
+```java
+recognizer.stop();
+```
 
 
 ---
