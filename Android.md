@@ -2,9 +2,9 @@
 ---
 ## Overview
 
-#### [Installation](#installation)
+#### [Installation](#installation-1)
 
-#### [Classes](#classes)
+#### [Classes](#classes-1)
 * [Emitter](#emitter)
 * [Recognizer](#recognizer)
 * [Utility](#utility)
@@ -15,7 +15,7 @@
 * [UtilityCallback](#utilitycallback)
 
 ---
-Installation
+## Installation
 ---
 ...
 
