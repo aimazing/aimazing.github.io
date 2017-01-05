@@ -1,4 +1,4 @@
-# SDK Documentation
+# Aimazing SDK Documentation
 
 ## Overview
 * [Features](#features)
