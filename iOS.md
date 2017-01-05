@@ -3,7 +3,7 @@
 ## Overview
 * [Features](#features)
 * [Requirements](#requirements)
-* [Installation](#installation)
+* [Usage](#usage)
 
 ## Classes
 * [Emitter](#emitter)
@@ -28,13 +28,19 @@
 
 
 
-### Requirements
+### [Requirements](#requirements)
 Hardware
 * Microphone can produces 16kHz \~ 20kHz
 * Speaker can receives 16kHz \~ 20kHz
 
 Software
 * iOS 9.0 or higher 
+
+### [Usage](#usage)
+
+```swift
+import AimazingLib
+```
 
 
 # Classes
