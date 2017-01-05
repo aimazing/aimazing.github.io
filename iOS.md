@@ -131,7 +131,7 @@ void startRecognition(onStarted:(() -> Void), onGotHeader:(() -> Void), onSucces
 * onStarted - Callback function when start receiving data
 * onGotHeader - Callback function when received transmittion header
 * onSuccess - Callback function when successfully receiving completed message
-* onFailed - Callback function when failed to receive data, error value can be referred to [RecognizerError](#recognizererror) 
+* onFailed - Callback function when failed to receive data, content could be an incompleted message, error value can be referred to [RecognizerError](#recognizererror) 
 
 #### Example
 ```swift
