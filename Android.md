@@ -315,7 +315,7 @@ public void onRequestPermissionsResult(int requestCode, String permissions[], in
 ```
 
 ---
-# Callback
+# Callback Functions
 ---
 ### EmitterCallback
 ---
