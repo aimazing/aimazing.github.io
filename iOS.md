@@ -8,7 +8,7 @@
 * [Emitter](#emitter)
 * [Recognizer](#recognizer)
 
-#### [Struct](#struct)
+#### [Struct](#struct-1)
 * [EmitterError](#emittererror)
 * [RecognizerError](#recognizererror)
 
