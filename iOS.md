@@ -1,4 +1,4 @@
-# Aimazing SDK Documentation
+# Aimazing SDK Documentation (iOS)
 
 ## Overview
 * [Features](#features)
