@@ -1,4 +1,4 @@
-# Aimazing SDK Documentation (iOS)
+# Aimazing SDK Documentation (Android)
 ---
 ## Overview
 
@@ -9,7 +9,7 @@
 * [Recognizer](#recognizer)
 * [Utility](#utility)
 
-#### [Callback Functions](#callbackfunctions)
+#### [Callback Functions](#callback-functions-1)
 * [EmitterCallback](#emittercallback)
 * [RecognizerCallback](#recognizercallback)
 * [UtilityCallback](#utilitycallback)
