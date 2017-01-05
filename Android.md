@@ -2,15 +2,22 @@
 ---
 ## Overview
 
-#### Classes
+#### [Installation](#installation)
+
+#### [Classes](#classes)
 * [Emitter](#emitter)
 * [Recognizer](#recognizer)
 * [Utility](#utility)
 
-#### Callback Functions
+#### [Callback Functions](#callbackfunctions)
 * [EmitterCallback](#emittercallback)
 * [RecognizerCallback](#recognizercallback)
 * [UtilityCallback](#utilitycallback)
+
+---
+Installation
+---
+...
 
 ---
 # Classes
