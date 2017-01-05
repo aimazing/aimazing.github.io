@@ -35,7 +35,6 @@
 
 
 ### Requirements
-
 Hardware
 * Microphone can produces 16kHz \~ 20kHz
 * Speaker can receives 16kHz \~ 20kHz
@@ -54,7 +53,6 @@ Software
 ## Emitter
 
 ### Construct
-
 Construct Emitter instance to start using Aimazing SDK to transmit data.
 
 ```java
@@ -91,7 +89,6 @@ emitter = new Emitter(MainActivity.this, emitterCallback);
 ```
 ---
 ### Start Playing
-
 Start transmitting data through sound waves. The sound waves will keep playing until stop() is called.
 ```java
 void start(String _message)
@@ -107,7 +104,6 @@ emitter.start("HelloWorld123");
 
 ---
 ### Stop Playing
-
 Stop playing sound waves.
 ```java
 void stop()
