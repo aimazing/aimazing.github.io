@@ -17,7 +17,16 @@
 ---
 ## Installation
 ---
-...
+1. Place the .aar file into the Android Project `app/libs/`.
+2. Insert the fragment below into `build.gradle`.
+```
+repositories {
+    flatDir {
+        dirs 'libs'
+    }
+}
+```
+3. Insert `compile(name:'aimazinglib-release', ext:'aar')` into `dependencies{}` of `build.gradle`.
 
 ---
 # Classes
