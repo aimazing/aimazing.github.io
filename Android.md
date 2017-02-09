@@ -190,27 +190,24 @@ recognizerCallback = new RecognizerCallback() {
 
   @Override
   public void onError(final String message) {
-    MainActivity.this.runOnUiThread(new Runnable() {
-      @Override
-      public void run() {
-        new AlertDialog.Builder(MainActivity.this)
-                .setTitle("Recognize Error")
-                .setMessage(message)
-                .setNeutralButton("OK", new DialogInterface.OnClickListener() {
-                  public void onClick(DialogInterface dialog, int which) {
-                    // do nothing
-                  }
-                })
-                .show();
-      }
-    });
+    Log.e("RECOGNIZERCALLBACK", "error: " + message);
   }
   
   @Override
   public void onFailed(final String message) {
     Log.e("RECOGNIZERCALLBACK", "failed: " + message);
   }
-  
+ 
+  @Override
+  public void onTimeout(final String mode) {
+    Log.e("RECOGNIZERCALLBACK", "timeout");
+  } 
+ 
+  @Override
+  public void onGotHeader() {
+    Log.e("RECOGNIZERCALLBACK", "headerGot");
+  } 
+ 
   @Override
   public void onGotOTT() {
     Log.e("RECOGNIZERCALLBACK", "ottGot");
@@ -395,6 +392,44 @@ public void onRequestPermissionsResult(int requestCode, String permissions[], in
   }
 }
 ```
+---
+### Is Device Rooted?
+---
+Check the device is rooted or not, due to safety reasons, we recommend you to limit the functionality to rooted devices.
+```java
+boolean isDeviceRooted();
+```
+
+#### Arguments
+N/A
+
+#### Example
+```java
+if (utility.isDeviceRooted())
+  Log.e("isDeviceRooted", "device rooted, please be careful");
+```
+
+---
+### Is Registered?
+---
+Check the register status, it will return an character
+```java
+char isRegistered()
+```
+
+#### Arguments
+N/A
+
+#### Return
+- 'R': registered as receiver
+- 'S': registered as sender
+- null: not register yet
+
+#### Example
+```java
+if (null == utility.isRegistered())
+  emitter.register("11afdsh2271g2");
+```
 
 ---
 # Callback Functions
@@ -409,6 +444,12 @@ While stop playing sound waves, this callback function will be called.
 
 #### onError(String errorMessage)
 While playing failed, this callback function will be called, the error message will be passed as `errorMessage`.
+
+#### onRegisterSuccess()
+While register success.
+
+#### onRegisterFailed()
+While register failed, please try again.
 
 ### Example
 ```java
@@ -440,6 +481,42 @@ emitterCallback = new EmitterCallback() {
       }
     });
   }
+  
+  @Override
+  public void onRegisterSuccess() {
+    MainActivity.this.runOnUiThread(new Runnable() {
+      @Override
+      public void run() {
+        new AlertDialog.Builder(MainActivity.this)
+                .setTitle("Emitter Success")
+                .setMessage("Emitter Register Success")
+                .setNeutralButton("OK", new DialogInterface.OnClickListener() {
+                  public void onClick(DialogInterface dialog, int which) {
+                    // do nothing
+                  }
+                })
+                .show();
+      }
+    });
+  }
+  
+  @Override
+  public void onRegisterFailed() {
+    MainActivity.this.runOnUiThread(new Runnable() {
+      @Override
+      public void run() {
+        new AlertDialog.Builder(MainActivity.this)
+                .setTitle("Emitter Error")
+                .setMessage("Emitter Register Failed")
+                .setNeutralButton("OK", new DialogInterface.OnClickListener() {
+                  public void onClick(DialogInterface dialog, int which) {
+                    // do nothing
+                  }
+                })
+                .show();
+      }
+    });
+  }
 };
 ```
 
@@ -458,6 +535,25 @@ While recognizer failed to start, this callback function will be called, the err
 #### onSuccess(String message)
 While recognizer got the message from emitter, this callback function will be called, the message will be passed as `message` .
 
+#### onFailed(String message)
+While OTT from sender invalid, this callback function will be called, which means transaction failed.
+
+#### onGotHeader()
+Debug use.
+
+#### onGotOTT()
+While recognizer got the OTT from sender, and waiting for Aimazing server response, this callback function will be called.
+
+#### onTimeout()
+Debug use.
+
+#### onRegisterSuccess()
+While register success.
+
+#### onRegisterFailed()
+While register failed, please try again.
+
+
 ### Example
 ```java
 recognizerCallback = new RecognizerCallback() {
@@ -466,33 +562,119 @@ recognizerCallback = new RecognizerCallback() {
     Log.e("RECOGNIZERCALLBACK", "started");
   }
 
-  @Override
-  public void onStopped() {
-    Log.e("RECOGNIZERCALLBACK", "stopped");
-  }
+@Override
+      public void onStarted() {
 
-  @Override
-  public void onSuccess(final String message) {
-    Log.e("RECOGNIZERCALLBACK", "success: " + message);
-  }
-
-  @Override
-  public void onError(final String message) {
-    MainActivity.this.runOnUiThread(new Runnable() {
-      @Override
-      public void run() {
-        new AlertDialog.Builder(MainActivity.this)
-                .setTitle("Recognize Error")
-                .setMessage(message)
-                .setNeutralButton("OK", new DialogInterface.OnClickListener() {
-                  public void onClick(DialogInterface dialog, int which) {
-                    // do nothing
-                  }
-                })
-                .show();
       }
-    });
-  }
+
+      @Override
+      public void onStopped() {
+
+      }
+
+      @Override
+      public void onSuccess(final String s) {
+        MainActivity.this.runOnUiThread(new Runnable() {
+          @Override
+          public void run() {
+            recognizedTextView.setText(s);
+          }
+        });
+      }
+
+      @Override
+      public void onError(final String message) {
+        MainActivity.this.runOnUiThread(new Runnable() {
+          @Override
+          public void run() {
+            new AlertDialog.Builder(MainActivity.this)
+                    .setTitle("Recognize Error")
+                    .setMessage(message)
+                    .setNeutralButton("OK", new DialogInterface.OnClickListener() {
+                      public void onClick(DialogInterface dialog, int which) {
+                        // do nothing
+                      }
+                    })
+                    .show();
+          }
+        });
+      }
+
+      @Override
+      public void onFailed(final String s) {
+        MainActivity.this.runOnUiThread(new Runnable() {
+          @Override
+          public void run() {
+            recognizedTextView.setText("Failed: " + s);
+          }
+        });
+      }
+
+      @Override
+      public void onTimeout(final String mode) {
+        MainActivity.this.runOnUiThread(new Runnable() {
+          @Override
+          public void run() {
+            recognizedTextView.setText("Timeout: " + mode);
+          }
+        });
+      }
+
+      @Override
+      public void onGotHeader() {
+        MainActivity.this.runOnUiThread(new Runnable() {
+          @Override
+          public void run() {
+            recognizedTextView.setText("");
+          }
+        });
+      }
+
+      @Override
+      public void onGotOTT() {
+        MainActivity.this.runOnUiThread(new Runnable() {
+          @Override
+          public void run() {
+            recognizedTextView.setText("GET OTT");
+          }
+        });
+      }
+
+      @Override
+      public void onRegisterFailed() {
+        MainActivity.this.runOnUiThread(new Runnable() {
+          @Override
+          public void run() {
+            new AlertDialog.Builder(MainActivity.this)
+                    .setTitle("Recognizer Error")
+                    .setMessage("Recognizer Register Failed")
+                    .setNeutralButton("OK", new DialogInterface.OnClickListener() {
+                      public void onClick(DialogInterface dialog, int which) {
+                        // do nothing
+                      }
+                    })
+                    .show();
+          }
+        });
+      }
+
+      @Override
+      public void onRegisterSuccess() {
+        MainActivity.this.runOnUiThread(new Runnable() {
+          @Override
+          public void run() {
+            new AlertDialog.Builder(MainActivity.this)
+                    .setTitle("Recognizer Success")
+                    .setMessage("Recognizer Register Success")
+                    .setNeutralButton("OK", new DialogInterface.OnClickListener() {
+                      public void onClick(DialogInterface dialog, int which) {
+                        // do nothing
+                      }
+                    })
+                    .show();
+          }
+        });
+      }
 };
 ```
 
