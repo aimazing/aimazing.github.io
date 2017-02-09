@@ -226,6 +226,23 @@ recognizerCallback = new RecognizerCallback() {
     
 recognizer = new Recognizer(MainActivity.this, recognizerCallback);
 ```
+
+---
+### Register
+---
+The registration result will be sent through callback function `onRegisterSuccess()` or `onRegisterFailed()`. Please refer "What is TokenC?" for the details of TokenC.
+```java
+void register(String tokenC)
+```
+
+#### Arguments
+* tokenC - tokenC
+
+#### Example
+```java
+recognizer.register("123a4cc7be7683adb71530");
+```
+
 ---
 ### Start Receiving
 ---
