@@ -28,7 +28,7 @@ If AimazingSDK is installed as OTT sender(ie. payee app), Emitter class provide 
 
 The steps we recommend you to follow:
 
-1. Check the registration status. If already registered as sender, skip step1 below. If already registered as receiver, step1 below will override the position, from receiver to sender. (to Utility.isRegistered()) 
+1. Check the registration status. If already registered as sender, skip step1 below. If already registered as receiver, step2 below will override the position, from receiver to sender. (to Utility.isRegistered()) 
 2. Register on AimazingSDK as sender.(to Emitter.register()) 
 3. Start using AimazingSDK to transmit OTT.(to Emitter.start())
 
@@ -113,7 +113,7 @@ If AimazingSDK is installed as OTT receiver(ie. merchant app), Recognizer class 
 
 The steps we recommend you to follow: 
 
-* 1. Check the registration status. If already registered as receiver, skip step1 below. If already registered as sender, step1 below will override the position, from receiver to sender. (to Utility.isRegistered()) 
+* 1. Check the registration status. If already registered as receiver, skip step2 below. If already registered as sender, step2 below will override the position, from receiver to sender. (to Utility.isRegistered()) 
 * 2. Register on AimazingSDK as receiver.(to Recognizer.register()) 
 * 3. Start using AimazingSDK to receive OTT.(to Recognizer.start())
 
