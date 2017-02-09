@@ -21,28 +21,6 @@
 import AimazingLib
 ```
 ---
-#### Add description into info.plist
-Allowed server connection should be stated clearly in info.plist
-
-```
- <key>NSAppTransportSecurity</key>
-    <dict>
-        <key>NSExceptionDomains</key>
-        <dict>
-            <key>aimpay.sg</key>
-            <dict>
-                <!--Include to allow subdomains-->
-                <key>NSIncludesSubdomains</key>
-                <true/>
-                <!--Include to specify minimum TLS version-->
-                <key>NSExceptionMinimumTLSVersion</key>
-                <string>TLSv1.0</string>
-            </dict>
-        </dict>
-    </dict>
-```
-
----
 # Classes
 ---
 ## Emitter
