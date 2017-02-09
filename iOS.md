@@ -255,7 +255,7 @@ func calibration(onStarted: () -> Void, onStopped: （）-> Void, onFailed: (err
 #### Arguments
 * onStarted - Callback function when calibration started
 * onStopped - Callback function when calibration succeeded
-* onFailed - Callback function when device failed to use sound wave to emit/trasmit message
+* onFailed - Callback function when device failed to use sound wave to emit/trasmit message, error value can be referred to [UtilityError](#utilityerror)
 
 
 #### Example
