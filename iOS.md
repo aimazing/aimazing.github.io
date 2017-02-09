@@ -309,12 +309,16 @@ if (utility.isRegistered() == "\0") {
 ## EmitterError
 ---
 * HEADSET_PLUGGED: Error when headset is detected
+* NOT_REGISTERED: Error when Emitter hasn't registered yet
 
 ## RecognizerError
 ---
 * HEADSET_PLUGGED: Error when headset is detected
 * HEADER_TIMEOUT: Error when time receving second header exceed
 * CHECKSUM_ERROR: Error when the received message can't match with checksum
+* TOKEN_NOT_FOUND: Error when the TOKEN received hasn't found on server
+* NOT_REGISTERED: Error when Recognizer hasn't registered yet
+
 
 ## UtilityError
 ---
