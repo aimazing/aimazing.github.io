@@ -319,5 +319,4 @@ if (utility.isRegistered() == "\0") {
 ## UtilityError
 ---
 * HEADSET_PLUGGED: Error when headset is detected
-* CONTENT_TIMEOUT: Error when timeout
-* INCORRECT_CONTENT: Error when the received message can't match with message emitted
+* CONTENT_TIMEOUT: Error when exceed the testing time, we can conclude that the device can't fully support SDK function
