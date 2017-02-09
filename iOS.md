@@ -272,8 +272,9 @@ func isRegistered() -> Character
 
 #### Example
 ```swift
-if (utility.isRegistered() == "\0")
+if (utility.isRegistered() == "\0") {
         emitter.register(...)
+}
 ```
 
 ---
