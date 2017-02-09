@@ -12,7 +12,7 @@
 #### [Struct](#struct-1)
 * [EmitterError](#emittererror)
 * [RecognizerError](#recognizererror)
-* [UtilityError](#utilityrerror)
+* [UtilityError](#utilityerror)
 
 ---
 ## Installation
@@ -27,11 +27,13 @@ import AimazingLib
 If AimazingSDK is installed as OTT sender(ie. payee app), Emitter class provide all the methods you need.
 
 The steps we recommend you to follow:
-* 0. Check the registration status. If already registered as sender, skip step1 below. If already registered as receiver, step1 below will override the position, from receiver to sender. (to Utility.isRegistered()) 
-* 1. Register on AimazingSDK as sender.(to Emitter.register()) 
-* 2. Start using AimazingSDK to transmit OTT.(to Emitter.start())
 
-Step 0 and 1 require internet connectivity, we recommend you to complete these two steps immediately after your user login to your app. Step 2 can be in totally offline environment, it means that sender can generate and send OTT offline.
+1. Check the registration status. If already registered as sender, skip step1 below. If already registered as receiver, step1 below will override the position, from receiver to sender. (to Utility.isRegistered()) 
+2. Register on AimazingSDK as sender.(to Emitter.register()) 
+3. Start using AimazingSDK to transmit OTT.(to Emitter.start())
+
+
+Step 1 and 2 require internet connectivity, we recommend you to complete these two steps immediately after your user login to your app. Step 3 can be in totally offline environment, it means that sender can generate and send OTT offline.
 ---
 ### Construct
 ---
@@ -110,9 +112,11 @@ emitter.stop(completion: {
 If AimazingSDK is installed as OTT receiver(ie. merchant app), Recognizer class provide all the methods you need.
 
 The steps we recommend you to follow: 
-* 0. Check the registration status. If already registered as receiver, skip step1 below. If already registered as sender, step1 below will override the position, from receiver to sender. (to Utility.isRegistered()) 
-* 1. Register on AimazingSDK as receiver.(to Recognizer.register()) 
-* 2. Start using AimazingSDK to receive OTT.(to Recognizer.start())
+
+* 1. Check the registration status. If already registered as receiver, skip step1 below. If already registered as sender, step1 below will override the position, from receiver to sender. (to Utility.isRegistered()) 
+* 2. Register on AimazingSDK as receiver.(to Recognizer.register()) 
+* 3. Start using AimazingSDK to receive OTT.(to Recognizer.start())
+
 
 These steps above require internet connectivity.
 ---
@@ -290,7 +294,7 @@ if (utility.isRegistered() == "\0") {
 * HEADER_TIMEOUT: Error when time receving second header exceed
 * CHECKSUM_ERROR: Error when the received message can't match with checksum
 
-## UtilityrError
+## UtilityError
 ---
 * HEADSET_PLUGGED: Error when headset is detected
 * CONTENT_TIMEOUT: Error when timeout
