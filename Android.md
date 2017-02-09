@@ -26,12 +26,28 @@ repositories {
     }
 }
 ```
-3. Insert `compile(name:'aimazinglib-release', ext:'aar')` into `dependencies{}` of `build.gradle`.
+3. Insert 
+```
+compile(name:'aimazinglib-release', ext:'aar')
+compile 'com.squareup.okhttp3:okhttp:3.4.1'
+```
+into `dependencies{}` of `build.gradle`.
 
 ---
 # Classes
 ---
+
 ## Emitter
+If AimazingSDK is installed as OTT sender(ie. payee app), Emitter class provide all the methods you need.
+
+The steps we recommend you to follow:
+0. Check the registration status. If already registered as sender, skip step1 below. If already registered as receiver, step1 below will override the position, from receiver to sender. (to Utility.isRegistered())
+1. Register on AimazingSDK as sender.(to Emitter.register())
+2. Start using AimazingSDK to transmit OTT.(to Emitter.start())
+
+Step 0 and 1 require internet connectivity, we recommend you to complete these two steps immediately after your user login to your app.
+Step 2 can be in totally offline environment, it means that sender can generate and send OTT offline.
+
 ---
 ### Construct
 ---
@@ -64,24 +80,51 @@ emitterCallback = new EmitterCallback() {
   public void onError(final String message) {
     Log.e("EMITTERCALLBACK", "error: " + message);
   }
+  
+  @Override
+  public void onRegisterFailed() {
+    Log.e("EMITTERCALLBACK", "registerFailed");
+  }
+  
+  @Override
+  public void onRegisterSuccess() {
+    Log.e("EMITTERCALLBACK", "registerSuccess");
+  }
 };
 
 emitter = new Emitter(MainActivity.this, emitterCallback);
 ```
+
 ---
-### Start Playing
+### Register
 ---
-Start transmitting data through sound waves. The sound waves will keep playing until stop() is called.
+The registration result will be sent through callback function `onRegisterSuccess()` or `onRegisterFailed()`. Please refer "What is TokenC?" for the details of TokenC.
 ```java
-void start(String _message)
+void register(String tokenC)
 ```
 
 #### Arguments
-* Message - message to transmit
+* tokenC - tokenC
 
 #### Example
 ```java
-emitter.start("HelloWorld123");
+emitter.register("123a4cc7be7683adb71530");
+```
+
+---
+### Start Playing
+---
+AimazingSDK will generate OTT and send it through sound waves.
+```java
+void start()
+```
+
+#### Arguments
+N/A
+
+#### Example
+```java
+emitter.start();
 ```
 
 ---
@@ -102,6 +145,16 @@ emitter.stop();
 ---
 
 ## Recognizer
+
+If AimazingSDK is installed as OTT receiver(ie. merchant app), Recognizer class provide all the methods you need.
+
+The steps we recommend you to follow:
+0. Check the registration status. If already registered as receiver, skip step1 below. If already registered as sender, step1 below will override the position, from receiver to sender. (to Utility.isRegistered())
+1. Register on AimazingSDK as receiver.(to Recognizer.register())
+2. Start using AimazingSDK to receive OTT.(to Recognizer.start())
+
+These steps above require internet connectivity.
+
 ---
 ### Construct
 ---
@@ -152,6 +205,26 @@ recognizerCallback = new RecognizerCallback() {
       }
     });
   }
+  
+  @Override
+  public void onFailed(final String message) {
+    Log.e("RECOGNIZERCALLBACK", "failed: " + message);
+  }
+  
+  @Override
+  public void onGotOTT() {
+    Log.e("RECOGNIZERCALLBACK", "ottGot");
+  }
+  
+  @Override
+  public void onRegisterFailed() {
+    Log.e("RECOGNIZERCALLBACK", "registerFailed");
+  }
+  
+  @Override
+  public void onRegisterSuccess() {
+    Log.e("RECOGNIZERCALLBACK", "registerSuccess");
+  }
 };
     
 recognizer = new Recognizer(MainActivity.this, recognizerCallback);
@@ -159,7 +232,7 @@ recognizer = new Recognizer(MainActivity.this, recognizerCallback);
 ---
 ### Start Receiving
 ---
-Start receiving data. The result will be sent through callback functions. Please refer to the description of [RecognizerCallback](#recognizercallback) for further details. 
+Start receiving ott. The sender's tokenC will be sent through callback functions. Please refer to the description of [RecognizerCallback](#recognizercallback) for further details.
 ```java
 void start()
 ```
