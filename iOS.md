@@ -316,4 +316,4 @@ if (utility.isRegistered() == "\0") {
 ## UtilityError
 ---
 * HEADSET_PLUGGED: Error when headset is detected
-* CONTENT_TIMEOUT: Error when exceed the testing time, we can conclude that the device can't fully support SDK function
+* CALIBRATION_FAILED: Error when exceed the testing time, we can conclude that the device can't fully support SDK function
