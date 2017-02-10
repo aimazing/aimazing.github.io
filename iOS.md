@@ -101,7 +101,6 @@ func start(completion:((error: Int) -> Void))
 ```
 
 #### Arguments
-* message - message to transmit, which is Base64 encoded
 * completion - Callback function when successfully start transmitting data, return error if failed to start transmitting data, error value can be referred to [EmitterError](#emittererror)
 
 #### Example
@@ -167,7 +166,7 @@ func register(token: String, completion: (isSuccess: Bool) -> Void)
 ```
 
 #### Arguments
-* token - tokenC
+* token - tokenC, please refer "What is TokenC?" for the details of TokenC
 * completion - Callback function when complete register procedure with registration status
 
 
@@ -189,19 +188,19 @@ func start(onStarted:(() -> Void), onGotHeader:(() -> Void), onGotOTT:(() -> Voi
 #### Arguments
 * onStarted - Callback function when start receiving data
 * onGotOTT - Callback function when received OTT
-* onSuccess - Callback function when successfully retrieving  token
-* onFailed - Callback function when failed to receive data, content could be an incompleted message, error value can be referred to [RecognizerError](#recognizererror) 
+* onSuccess - Callback function when successfully retrieving  tokenC from server
+* onFailed - Callback function when failed to receive data, error value can be referred to [RecognizerError](#recognizererror) 
 
 #### Example
 ```swift
 recognizer.start( onStarted: {
             // THINGS TO DO WHEN START RECEIVING SOUND WAVE DATA
         }, onGotOTT: {
-            // THINGS TO DO WHEN RECEIVED OTT
+            // THINGS TO DO WHEN RECEIVED OTT FROM EMITTING SIDE
         }, onSuccess: {(content) in
-            // THINGS TO DO WHEN SUCCESSFULLY RECEIVING COMPLETED MESSAGE
+            // THINGS TO DO WHEN SUCCESSFULLY RETRIEVING TOKENC
         }, onFailed: {(content, error) in
-            // THINGS TO DO WHEN FAILED TO START RECEIVING DATA
+            // THINGS TO DO WHEN FAILED TO RECEIVE DATA
         })
 ```
 ---
@@ -226,7 +225,7 @@ recognizer.stop( completion: {
 ---
 ### Construct
 ---
-Construct Emitter instance to start using Aimazing SDK to transmit data.
+Construct Utility instance.
 ```swift
 Utility(_view: UIView)
 ```
@@ -252,7 +251,7 @@ func calibration(onStarted: () -> Void, onStopped: （）-> Void, onFailed: (err
 #### Arguments
 * onStarted - Callback function when calibration started
 * onStopped - Callback function when calibration succeeded
-* onFailed - Callback function when device failed to use sound wave to emit/trasmit message, error value can be referred to [UtilityError](#utilityerror)
+* onFailed - Callback function when device failed to use sound wave to trasmit/receive data, error value can be referred to [UtilityError](#utilityerror)
 
 
 #### Example
