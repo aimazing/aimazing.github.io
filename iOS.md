@@ -82,7 +82,7 @@ func register(token: String, completion: (isSuccess: Bool) -> Void)
 ```
 
 #### Arguments
-* token - tokenC
+* token - tokenC, Please refer "What is TokenC?" for the details of TokenC
 * completion - Callback function when complete register procedure with registration status
 
 
@@ -106,7 +106,7 @@ func start(completion:((error: Int) -> Void))
 
 #### Example
 ```swift
-emitter.start(completion: { (error) in
+emitter.start( completion: { (error) in
         // THINGS TO DO
 })
 ```
@@ -124,7 +124,7 @@ func stop(completion:(() -> Void))
 
 #### Example
 ```swift
-emitter.stop(completion: {
+emitter.stop( completion: {
       // THINGS TO DO 
 })
 ```
@@ -135,9 +135,9 @@ If AimazingSDK is installed as OTT receiver(ie. merchant app), Recognizer class 
 
 The steps we recommend you to follow: 
 
-* 1. Check the registration status. If already registered as receiver, skip step2 below. If already registered as sender, step2 below will override the position, from receiver to sender. (to Utility.isRegistered()) 
-* 2. Register on AimazingSDK as receiver.(to Recognizer.register()) 
-* 3. Start using AimazingSDK to receive OTT.(to Recognizer.start())
+1. Check the registration status. If already registered as receiver, skip step2 below. If already registered as sender, step2 below will override the position, from receiver to sender. (to Utility.isRegistered()) 
+2. Register on AimazingSDK as receiver.(to Recognizer.register()) 
+3. Start using AimazingSDK to receive OTT.(to Recognizer.start())
 
 
 These steps above require internet connectivity.
@@ -194,7 +194,7 @@ func start(onStarted:(() -> Void), onGotHeader:(() -> Void), onGotOTT:(() -> Voi
 
 #### Example
 ```swift
-recognizer.start(onStarted: {
+recognizer.start( onStarted: {
             // THINGS TO DO WHEN START RECEIVING SOUND WAVE DATA
         }, onGotOTT: {
             // THINGS TO DO WHEN RECEIVED OTT
@@ -313,7 +313,6 @@ if (utility.isRegistered() == "\0") {
 * HEADSET_PLUGGED: Error when headset is detected
 * TOKEN_NOT_FOUND: Error when the TOKEN received hasn't found on server
 * NOT_REGISTERED: Error when Recognizer hasn't registered yet
-
 
 ## UtilityError
 ---
