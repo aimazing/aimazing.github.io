@@ -78,7 +78,7 @@ emitter = Emitter(_view: view)
 ---
 Register as vaild emitter 
 ```swift
-func register(token: String, completion: (isSuccess: Bool) -> Void)
+func register(token: String, completion: (isSuccess: Bool, error: String) -> Void)
 ```
 
 #### Arguments
@@ -162,7 +162,7 @@ recognizer = Recognizer(_view: view)
 ---
 Register as vaild reconizer 
 ```swift
-func register(token: String, completion: (isSuccess: Bool) -> Void)
+func register(token: String, completion: (isSuccess: Bool, error: String) -> Void)
 ```
 
 #### Arguments
@@ -182,7 +182,7 @@ recognizer.register(token: "123a4cc7be7683adb71530", completion: { isSuccess, er
 ---
 Start receiving data. The result will be sent through callback functions. 
 ```swift
-func start(onStarted:(() -> Void), onGotHeader:(() -> Void), onGotOTT:(() -> Void), onSuccess:((content: String) -> Void), onFailed:((content, error)  -> Void))
+func start(onStarted:(() -> Void), onGotOTT:(() -> Void), onSuccess:((tokenC: String) -> Void), onFailed:((error: Int, description: String)  -> Void))
 ```
 
 #### Arguments
