@@ -310,7 +310,7 @@ if (utility.isRegistered() == "\0") {
 ## RecognizerError
 ---
 * **HEADSET_PLUGGED**: Error when headset is detected
-* **TOKEN_NOT_FOUND**: Error when the TOKEN received hasn't found on server
+* **TOKEN_RETRIEVE_ERROR**: Error when the TOKEN received hasn't found on server
 * **NOT_REGISTERED**: Error when Recognizer hasn't registered yet
 
 ## UtilityError
