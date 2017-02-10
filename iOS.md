@@ -55,7 +55,7 @@ The steps we recommend you to follow:
 3. Start using AimazingSDK to transmit OTT.(to Emitter.start())
 
 
-Step 1 and 2 require internet connectivity, we recommend you to complete these two steps immediately after your user login to your app. Step 3 can be in totally offline environment, it means that sender can generate and send OTT offline.
+#### Step 1 and 2 require internet connectivity, we recommend you to complete these two steps immediately after your user login to your app. Step 3 can be in totally offline environment, it means that sender can generate and send OTT offline.
 ---
 ### Construct
 ---
@@ -139,7 +139,7 @@ The steps we recommend you to follow:
 3. Start using AimazingSDK to receive OTT.(to Recognizer.start())
 
 
-These steps above require internet connectivity.
+#### These steps above require internet connectivity.
 ---
 ### Construct
 ---
