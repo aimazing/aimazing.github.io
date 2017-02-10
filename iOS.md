@@ -188,7 +188,6 @@ func start(onStarted:(() -> Void), onGotHeader:(() -> Void), onGotOTT:(() -> Voi
 
 #### Arguments
 * onStarted - Callback function when start receiving data
-* onGotHeader - Callback function when received transmittion header
 * onGotOTT - Callback function when received OTT
 * onSuccess - Callback function when successfully retrieving  token
 * onFailed - Callback function when failed to receive data, content could be an incompleted message, error value can be referred to [RecognizerError](#recognizererror) 
@@ -197,13 +196,11 @@ func start(onStarted:(() -> Void), onGotHeader:(() -> Void), onGotOTT:(() -> Voi
 ```swift
 recognizer.start(onStarted: {
             // THINGS TO DO WHEN START RECEIVING SOUND WAVE DATA
-        },onGotHeader: {
-            // THINGS TO DO WHEN RECEIVED TRANSMITTION HEADER
-        },onGotOTT: {
+        }, onGotOTT: {
             // THINGS TO DO WHEN RECEIVED OTT
-        },onSuccess: {(content) in
+        }, onSuccess: {(content) in
             // THINGS TO DO WHEN SUCCESSFULLY RECEIVING COMPLETED MESSAGE
-        },onFailed: {(content, error) in
+        }, onFailed: {(content, error) in
             // THINGS TO DO WHEN FAILED TO START RECEIVING DATA
         })
 ```
@@ -314,8 +311,6 @@ if (utility.isRegistered() == "\0") {
 ## RecognizerError
 ---
 * HEADSET_PLUGGED: Error when headset is detected
-* HEADER_TIMEOUT: Error when time receving second header exceed
-* CHECKSUM_ERROR: Error when the received message can't match with checksum
 * TOKEN_NOT_FOUND: Error when the TOKEN received hasn't found on server
 * NOT_REGISTERED: Error when Recognizer hasn't registered yet
 
