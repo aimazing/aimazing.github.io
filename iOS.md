@@ -197,9 +197,9 @@ recognizer.start( onStarted: {
             // THINGS TO DO WHEN START RECEIVING SOUND WAVE DATA
         }, onGotOTT: {
             // THINGS TO DO WHEN RECEIVED OTT FROM EMITTING SIDE
-        }, onSuccess: {(content) in
+        }, onSuccess: {(TokenC) in
             // THINGS TO DO WHEN SUCCESSFULLY RETRIEVING TOKENC
-        }, onFailed: {(content, error) in
+        }, onFailed: {(error, description) in
             // THINGS TO DO WHEN FAILED TO RECEIVE DATA
         })
 ```
