@@ -160,7 +160,7 @@ recognizer = Recognizer(_view: view)
 ---
 ### Register
 ---
-Register as vaild reconizer 
+Register as vaild recognizer 
 ```swift
 func register(token: String, completion: (isSuccess: Bool, error: String) -> Void)
 ```
