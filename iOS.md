@@ -88,7 +88,7 @@ func register(token: String, completion: (isSuccess: Bool) -> Void)
 
 #### Example
 ```swift
-emitter.register(token: "123a4cc7be7683adb71530", completion: { isSuccess in
+emitter.register(token: "123a4cc7be7683adb71530", completion: { isSuccess, error in
         // THING TO DO
 })
 ```
@@ -172,7 +172,7 @@ func register(token: String, completion: (isSuccess: Bool) -> Void)
 
 #### Example
 ```swift
-recognizer.register(token: "123a4cc7be7683adb71530", completion: { isSuccess in
+recognizer.register(token: "123a4cc7be7683adb71530", completion: { isSuccess, error in
         // THING TO DO
 })
 ```
