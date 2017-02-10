@@ -245,7 +245,7 @@ utility = Utility(_view: view)
 In order to start using Aimazing SDK, the microphone and speaker of the device need to pass this calibration process to ensure that the device is fully supports the functions Aimazing SDK provide. The result of calibration process will be sent through callback functions.
 
 ```swift
-func calibration(onStarted: () -> Void, onStopped: （）-> Void, onFailed: (error: Int) -> Void)
+func calibration(onStarted: () -> Void, onStopped: ()-> Void, onFailed: (error: Int) -> Void)
 ```
 
 #### Arguments
