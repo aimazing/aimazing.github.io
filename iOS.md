@@ -65,7 +65,7 @@ Emitter(_view: UIView)
 ```
 
 #### Arguments
-* UIView - The view that the UIViewController manages
+* **_view** - The view that the UIViewController manages
 
 #### Example
 ```swift
@@ -82,8 +82,8 @@ func register(token: String, completion: (isSuccess: Bool) -> Void)
 ```
 
 #### Arguments
-* token - tokenC, Please refer "What is TokenC?" for the details of TokenC
-* completion - Callback function when complete register procedure with registration status
+* **token** - tokenC, Please refer "What is TokenC?" for the details of TokenC
+* **completion** - Callback function when complete register procedure with registration status
 
 
 #### Example
@@ -101,7 +101,7 @@ func start(completion:((error: Int) -> Void))
 ```
 
 #### Arguments
-* completion - Callback function when successfully start transmitting data, return error if failed to start transmitting data, error value can be referred to [EmitterError](#emittererror)
+* **completion** - Callback function when successfully start transmitting data, return error if failed to start transmitting data, error value can be referred to [EmitterError](#emittererror)
 
 #### Example
 ```swift
@@ -119,7 +119,7 @@ func stop(completion:(() -> Void))
 ```
 
 #### Arguments
-* completion - Callback function when stop transmitting data
+* **completion** - Callback function when stop transmitting data
 
 #### Example
 ```swift
@@ -149,7 +149,7 @@ Recognizer(_view: UIView)
 ```
 
 #### Arguments
-* UIView - The view that the UIViewController manages
+* **_view** - The view that the UIViewController manages
 
 #### Example
 ```swift
@@ -166,8 +166,8 @@ func register(token: String, completion: (isSuccess: Bool) -> Void)
 ```
 
 #### Arguments
-* token - tokenC, please refer "What is TokenC?" for the details of TokenC
-* completion - Callback function when complete register procedure with registration status
+* **token** - tokenC, please refer "What is TokenC?" for the details of TokenC
+* **completion** - Callback function when complete register procedure with registration status
 
 
 #### Example
@@ -186,10 +186,10 @@ func start(onStarted:(() -> Void), onGotHeader:(() -> Void), onGotOTT:(() -> Voi
 ```
 
 #### Arguments
-* onStarted - Callback function when start receiving data
-* onGotOTT - Callback function when received OTT
-* onSuccess - Callback function when successfully retrieving  tokenC from server
-* onFailed - Callback function when failed to receive data, error value can be referred to [RecognizerError](#recognizererror) 
+* **onStarted** - Callback function when start receiving data
+* **onGotOTT** - Callback function when received OTT
+* **onSuccess** - Callback function when successfully retrieving  tokenC from server
+* **onFailed** - Callback function when failed to receive data, error value can be referred to [RecognizerError](#recognizererror) 
 
 #### Example
 ```swift
@@ -212,7 +212,7 @@ func stop(completion:(() -> Void))
 ```
 
 #### Arguments
-* completion - Callback function when stop receiving data
+* **completion** - Callback function when stop receiving data
 
 #### Example
 ```swift
@@ -231,7 +231,7 @@ Utility(_view: UIView)
 ```
 
 #### Arguments
-* UIView - The view that the UIViewController manages
+* **_view** - The view that the UIViewController manages
 
 #### Example
 ```swift
@@ -249,9 +249,9 @@ func calibration(onStarted: () -> Void, onStopped: （）-> Void, onFailed: (err
 ```
 
 #### Arguments
-* onStarted - Callback function when calibration started
-* onStopped - Callback function when calibration succeeded
-* onFailed - Callback function when device failed to use sound wave to trasmit/receive data, error value can be referred to [UtilityError](#utilityerror)
+* **onStarted** - Callback function when calibration started
+* **onStopped** - Callback function when calibration succeeded
+* **onFailed** - Callback function when device failed to use sound wave to trasmit/receive data, error value can be referred to [UtilityError](#utilityerror)
 
 
 #### Example
@@ -287,9 +287,9 @@ func isRegistered() -> Character
 ```
 
 ### Return
-* "R": Registered as receiver
-* "S": Registered as sender
-* "\0": Not register yet
+* **"R"**: Registered as receiver
+* **"S"**: Registered as sender
+* **"\0"**: Not register yet
 
 
 #### Example
@@ -304,16 +304,16 @@ if (utility.isRegistered() == "\0") {
 ---
 ## EmitterError
 ---
-* HEADSET_PLUGGED: Error when headset is detected
-* NOT_REGISTERED: Error when Emitter hasn't registered yet
+* **HEADSET_PLUGGED**: Error when headset is detected
+* **NOT_REGISTERED**: Error when Emitter hasn't registered yet
 
 ## RecognizerError
 ---
-* HEADSET_PLUGGED: Error when headset is detected
-* TOKEN_NOT_FOUND: Error when the TOKEN received hasn't found on server
-* NOT_REGISTERED: Error when Recognizer hasn't registered yet
+* **HEADSET_PLUGGED**: Error when headset is detected
+* **TOKEN_NOT_FOUND**: Error when the TOKEN received hasn't found on server
+* **NOT_REGISTERED**: Error when Recognizer hasn't registered yet
 
 ## UtilityError
 ---
-* HEADSET_PLUGGED: Error when headset is detected
-* CALIBRATION_FAILED: Error when exceed the testing time, we can conclude that the device can't fully support SDK function
+* **HEADSET_PLUGGED**: Error when headset is detected
+* **CALIBRATION_FAILED**: Error when exceed the testing time, we can conclude that the device can't fully support SDK function
