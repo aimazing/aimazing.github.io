@@ -20,6 +20,7 @@
 #### Import library
 ```swift
 import AimazingLib
+import CommonCrypto
 ```
 ---
 #### Add description into info.plist
